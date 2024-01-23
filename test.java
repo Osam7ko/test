@@ -1,5 +1,5 @@
 public class test {
     //test
     String osama;
-    int age = 15;
+    int age = 30;
 }
