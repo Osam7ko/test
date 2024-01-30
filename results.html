@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Search Results</title>
+  <style>
+    .search-results {
+      margin-top: 20px;
+      text-align: center;
+    }
+    .search-results .result {
+      margin-bottom: 10px;
+    }
+    .search-results .result a {
+      display: block;
+      padding: 10px;
+      background-color: #f4f4f4;
+      text-decoration: none;
+      color: #000000;
+    }
+  </style>
+</head>
+<body>
+  <div class="search-results">
+    <h1>Search Results</h1>
+    <div id="resultsContainer"></div>
+  </div>
+
+  <script>
+    var contentData = [
+      { name: "computer engineer", href: "index4.html" },
+      { name: "Jane Smith", page: "page2.html" },
+      { name: "David Johnson", page: "page3.html" }
+    ];
+
+    function createResultElement(resultData) {
+      var resultContainer = document.createElement("div");
+      resultContainer.classList.add("result");
+
+      var resultLink = document.createElement("a");
+      resultLink.href = resultData.page;
+      resultLink.textContent = resultData.name;
+
+      resultContainer.appendChild(resultLink);
+      return resultContainer;
+    }
+
+    function displayResults() {
+      var query = getQueryParam("q");
+      var resultsContainer = document.getElementById("resultsContainer");
+
+      var matchingResults = contentData.filter(function(item) {
+        return item.name.toLowerCase().includes(query.toLowerCase());
+      });
+
+      if (matchingResults.length > 0) {
+        matchingResults.forEach(function(result) {
+          var resultElement = createResultElement(result);
+          resultsContainer.appendChild(resultElement);
+        });
+      } else {
+        var noResults = document.createElement("p");
+        noResults.textContent = "No results found for '" + query + "'.";
+        resultsContainer.appendChild(noResults);
+      }
+    }
+
+    function getQueryParam(param) {
+      var urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+
+    displayResults();
+  </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<html>
+  <html lang="en">
+      <head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+          <link rel="stylesheet" href="stayl.css">
+
+        <title>Website with Centered Logo</title>
+          <style>
+            header {
+              display: flex;
+              justify-content: last baseline;
+              align-items: center;
+            }
+            .logo1 {
+              max-width: 100px;
+            }
+          </style>
+        </head>
+
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <a href="index.html" class="logo">Useful Knowledge</a>
+            <nav class="navigation">
+                <img src="img/logo1.jpg" alt="Logo1" class="logo1">
+                <a href="index.html">Login</a>
+                <a href="index2.html">Signup</a>
+            </nav>
+        </header>
+
+        <section>
+            <link rel="stylesheet" href="stayyyl.css">
+            <body>
+                <div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
+                    <h1>Login</h1>
+                </div>
+                <div class="formbg-outer">
+                    <div class="formbg">
+                        <div class="formbg-inner padding-horizontal--48">
+                              <form id="stripe-login" onsubmit="handleLogin(); return false;">                                <div class="field padding-bottom--24">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <div class="field padding-bottom--24">
+                                    <label for="password">Password</label>
+                                    <input type="password" id="password" name="password" required>
+                                </div>
+                                <div class="padding-bottom--24">
+                                    <label for="checkbox">
+                                        <input type="checkbox" name="checkbox"> Remember me?
+                                    </label>
+                                </div>
+                                <div class="field padding-bottom--24">
+                                    <button type="submit" class="main-btn" href="index3.html">LOGIN</button>
+                              
+                                </div>
+                                <a href="index9.html">Forgot password?</a>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="footer-link padding-top--24">
+                        <span>Don't Have Account?<a href="index2.html">create account</a></span>
+                        <div class="listing padding-top--24 padding-bottom--24 flex-flex center-center"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
+
+        <script>
+            function handleLogin() {
+                var email = document.getElementById("email").value;
+                var password = document.getElementById("password").value;
+              window.location.href = "index3.html";
+
+                // Simulating user authentication (replace with your server-side logic)
+                // if (email === "user@example.com" && password === "password") {
+                //     alert("Login successful!");
+                //     return true; // Allow form submission
+                // } else {
+                //     alert("Invalid email or password.");
+                //     return false; // Prevent form submission
+                // }
+            }
+        </script>
+    </body>
+
+    </html>

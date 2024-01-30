@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Discussion Board</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .post {
+            background-color: #f2f2f2;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .post .author {
+            font-weight: bold;
+        }
+
+        .post .timestamp {
+            color: #888888;
+            font-size: 12px;
+        }
+
+        .post .content {
+            margin-top: 5px;
+        }
+
+        .reply {
+            margin-left: 20px;
+        }
+
+        .form-wrapper {
+            margin-bottom: 20px;
+        }
+
+        .form-wrapper input,
+        .form-wrapper textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        .form-wrapper textarea {
+            height: 100px;
+        }
+
+        .form-wrapper button {
+            background-color: #4caf50;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .form-wrapper button:hover {
+            background-color: #45a049;
+        }
+
+        .reply-btn {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            margin-left: 10px;
+            font-size: 12px;
+        }
+
+        .reply-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Discussion Board</h1>
+
+    <div class="form-wrapper">
+        <input type="text" id="author" placeholder="Your Name">
+        <textarea id="message" placeholder="Your Message"></textarea>
+        <button onclick="postMessage()">Post</button>
+    </div>
+
+    <div id="posts"></div>
+
+    <script>
+        // Replace this with the actual user information from your authentication system
+        const currentUser = {
+            name: "You"
+        };
+
+        function postMessage() {
+            const authorInput = document.getElementById("author");
+            const messageInput = document.getElementById("message");
+
+            const author = authorInput.value.trim();
+            const message = messageInput.value.trim();
+
+            if (!author || !message) {
+                alert("Please enter both your name and message.");
+                return;
+            }
+
+            const timestamp = new Date().toLocaleString();
+
+            const postDiv = document.createElement("div");
+            postDiv.classList.add("post");
+            postDiv.setAttribute("data-author", author);
+            postDiv.setAttribute("data-timestamp", timestamp);
+
+            postDiv.innerHTML = `
+                <div class="author">${author}</div>
+                <div class="timestamp">${timestamp}</div>
+                <div class="content">${message} <button class="reply-btn" onclick="replyToMessage('${author}', '${timestamp}')">Reply</button></div>
+                <div class="replies" id="replies-${author}-${timestamp}"></div>
+            `;
+
+            document.getElementById("posts").appendChild(postDiv);
+
+            // Clear the form
+            authorInput.value = "";
+            messageInput.value = "";
+        }
+
+        function replyToMessage(author, timestamp) {
+            const replyMessage = prompt("Reply to the message:");
+            if (replyMessage) {
+                const replyDiv = document.createElement("div");
+                replyDiv.classList.add("post", "reply");
+
+                const replyAuthor = currentUser ? currentUser.name : "You";
+
+                replyDiv.innerHTML = `
+                    <div class="author">${replyAuthor}</div>
+                    <div class="timestamp">${new Date().toLocaleString()}</div>
+                    <div class="content">${replyMessage}</div>
+                `;
+
+                const repliesContainer = document.getElementById(`replies-${author}-${timestamp}`);
+                if (repliesContainer) {
+                    repliesContainer.appendChild(replyDiv);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

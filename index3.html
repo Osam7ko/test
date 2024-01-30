@@ -1,0 +1,151 @@
+<html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+            <link rel="stylesheet" href="stayl.css">
+            <title>Website with Centered Logo</title>
+              <style>
+                header {
+                  display: flex;
+                  justify-content: last baseline;
+                  align-items: center;
+                }
+                .logo1 {
+                  max-width: 100px;
+                }
+              </style>
+            </head>
+        <body>
+            <header>
+              
+              <a href="index3.html" class="logo">Useful Knowledge </a>
+              <nav class="navigation">
+                <img src="img/logo1.jpg" alt="Logo1" class="logo1">
+
+                <a href="index.html">Login</a>
+                <a href="index2.html">Signup</a>
+
+                  
+        
+         
+                </nav>
+            </header>
+          <section>
+            <link rel="stylesheet" href="stayyyl.css">
+<body>
+
+        <div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
+         
+           <title>Search Bar with Result Prediction</title>
+            <style>
+              .search-wrapper {
+                text-align: center;
+                margin-top: 20px;
+              }
+              .search-wrapper input[type="text"] {
+                width: 300px;
+                padding: 5px;
+                font-size: 16px;
+              }
+              .search-predictions {
+                margin-top: 10px;
+                text-align: center;
+              }
+              .search-predictions ul {
+                list-style: none;
+                padding: 0;
+              }
+              .search-predictions li {
+                cursor: pointer;
+                margin-bottom: 5px;
+              }
+              .search-predictions li:hover {
+                background-color: #f2f2f2;
+              }
+            </style>
+          </head>
+          <body>
+            <div class="search-wrapper">
+              <input type="text" id="searchInput" placeholder="Search . . ." oninput="showPredictions()">
+            </div>
+
+            <div class="search-predictions">
+              <ul id="predictionsList"></ul>
+            </div>
+
+            <script>
+              var contentData = [
+                "computer engineering",
+                "data anaylis",
+                "mathmatics"
+              ];
+
+              function showPredictions() {
+                var input = document.getElementById("searchInput").value.toLowerCase();
+                var predictionsList = document.getElementById("predictionsList");
+                predictionsList.innerHTML = "";
+
+                var matchingPredictions = contentData.filter(function(item) {
+                  return item.toLowerCase().startsWith(input);
+                });
+
+                if (matchingPredictions.length > 0) {
+                  matchingPredictions.forEach(function(prediction) {
+                    var li = document.createElement("li");
+                    li.textContent = prediction;
+                    li.onclick = function() {
+                      performSearch(prediction);
+                    };
+                    predictionsList.appendChild(li);
+                  });
+                } else {
+                  var li = document.createElement("li");
+                  li.textContent = "No predictions found.";
+                  predictionsList.appendChild(li);
+                }
+              }
+
+              function performSearch(query) {
+                // Replace this with your desired implementation
+                alert("indergurgh" + ali);
+              }
+            
+                function performSearch() {
+                  var input = document.getElementById("searchInput").value.trim();
+                  if (input !== "") {
+                    var url = "results.html?q=" + encodeURIComponent(input);
+                    window.location.href = url;
+                  }
+                }
+              </script>
+            </script>
+              </form>
+            </div>
+            <div class="formbg2-outer">
+              <div class="formbg2">
+                <div class="formbg2-inner padding-horizontal--48 ">
+
+                  <style>   #object1 {
+                    object-fit: contain;
+                    object-position:top ;
+                    position:relative;
+            
+                   } 
+
+                     </style>
+                 
+       
+                  <form id="stripe-login">
+                   
+                    <div class="field padding-bottom--40">
+
+                        <div>
+                          <a href="index4.html"><img  src="img/enginer2.jpg" width="190" height="190" id="object1" ><a href="index5.html"><img src="img/DataAnylis.jpg" height ="180" weidth = "180" id="object1"  ><a href="index6.html"><img src="img/math.jpg" height ="180" weidth = "180" id="object1"  ></a>
+                  
+               
+</body>
+
+</html>
